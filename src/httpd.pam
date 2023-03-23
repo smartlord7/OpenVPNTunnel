@@ -1,0 +1,14 @@
+#%PAM-1.0
+
+auth       required     pam_google_authenticator.so nullok
+
+auth       include      password-auth
+
+auth       required     pam_deny.so
+
+account    include      password-auth
+
+session    optional     pam_keyinit.so revoke
+
+session    include      password-auth
+
